@@ -37,3 +37,14 @@ Elastic Beanstalk용 CLI로 명령줄에서 Elastic Beanstalk 환경을 관리�
 ### 3. CircleCI 계정 생성
 
 [계정 생성](https://circleci.com/vcs-authorize/) 해당 페이지로 접속해, `Login with Github` 버튼을 통해 계정을 생성해주세요.
+
+
+
+### 4. Git Client 
+
+CircleCI를 활용해 배포 자동화 실습을 하기 위해서는 Git에 push를 자주 해야합니다. commit, push, merge 할 때 git 명령어를 써도 되지만, 해당 세션에서는 다소 많은 push가 이뤄질 예정이기에 Git Client를 활용하고자 합니다. 평소에 자주 사용하시던 tool로 진행해주시면 됩니다! 혹시나 아직 설치해본 적이 없으시다면, Git Kraken을 추천드려요! 세션은 Git Kraken을 사용해 진행됩니다!
+
+- [Git Kraken](https://www.gitkraken.com/git-client)
+- [Source Tree](https://www.sourcetreeapp.com/)
+
+- [Tower](https://www.git-tower.com/)
