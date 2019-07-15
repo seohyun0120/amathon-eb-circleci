@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec babel-node server.js"
+    "start": "nodemon --exec babel-node server.js --ignore client/"
   },
   "dependencies": {
     "cors": "^2.8.5",
