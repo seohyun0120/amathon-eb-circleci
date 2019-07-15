@@ -7,7 +7,7 @@
 ```
 amathon
 |__ client
-		|__ ...
+    |__ ...
 |__ server.js
 |__ package.json
 |__ package-lock.json
