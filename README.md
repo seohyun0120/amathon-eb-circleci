@@ -1,6 +1,6 @@
 ## Amathon
 
-사전 준비 사항: [준비하기](./BeforeSession.md)
+사전 준비 사항: [준비하기](./guide/BeforeSession.md)
 
 세션 시작 하기
 
