@@ -192,3 +192,126 @@ $ create-react-app .
 
 ![4](./pic/4.png)
 
+버튼을 클릭하면 오늘의 할 일을 보여주는 간단한 앱을 만들어봅시다. /todo 요청을 날리면, 다음과 같이 응답이 오도록 만들어봅시다. server.js를 아래와 같이 수정해주세요.
+
+**server.js**
+
+```js
+const express = require('express');
+const PORT = process.env.HTTP_PORT || 4001;
+
+const app = express();
+
+app.get('/todo', (req, res) => {
+  res.json(
+    {
+      name: 'CircleCI',
+      description: 'setting CI/CD with CircleCI'
+    });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening at port ${PORT}.`);
+})
+```
+
+
+
+TODO 버튼을 클릭하면, name과 description 옆에 할 일이 채워지는 코드를 작성해봅시다. 
+
+``` bash
+$ yarn add axios
+```
+
+
+
+**client/src/App.js**
+
+```js
+import React from 'react';
+import './App.css';
+import axios from 'axios';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todo: {}
+    }
+  }
+
+  getToDo = async () => {
+    try {
+      const response = await axios.get('/todo');
+      this.setState({
+        todo: response.data
+      })
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello Stranger?</h1>
+        <button onClick={this.getToDo}>
+          TODO
+        </button>
+        <h3>name: {this.state.todo.name}</h3>
+        <h4>description: {this.state.todo.description}</h4>
+      </div>
+    )
+  }
+
+}
+
+export default App;
+```
+
+
+
+여기서 **client**는 3000번 포트에서 실행되고, **server**는 4001번 포트에서 실행되면, 그 둘은 어떻게 통신할 수 있을까요? `http-proxy-middleware` 패키지를 사용하면 됩니다.
+
+
+
+```bash
+$ yarn add http-proxy-middleware
+```
+
+
+
+**client/src/setupProxy.js**
+
+```js
+const proxy = require('http-proxy-middleware')
+
+module.exports = function (app) {
+  app.use(proxy('/todo', { target: 'http://127.0.0.1:4001/' }));
+};
+```
+
+
+
+이제, 서버와 클라이언트가 통신할 수 있습니다. 2개의 터미널을 열어 **server**와 **client**를 실행시켜 봅시다.
+
+```bash
+# client
+$ cd client
+$ yarn start
+
+# server
+$ yarn start
+```
+
+![5](./pic/5.png)
+
+
+
+![6](./pic/6.png)
+
+**TODO** 버튼을 클릭하면 다음과 같이 현재 state에서 값을 가져오는 것을 확인할 수 있습니다. 
+
+![7](./pic/7.png)
+
+여기까지는 간단한 React + Express 앱을 만들기 위한 준비 과정이었고 이제 본격적으로 CircleCI를 사용해 ElasticBeanstalk으로 배포하는 방법에 대해 배워봅시다. 
