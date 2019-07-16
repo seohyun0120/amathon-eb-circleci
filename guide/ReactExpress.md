@@ -1,4 +1,4 @@
-## React + Express
+# React + Express
 
 이번 세션에서는 Front-End와 Back-end를 하나의 레포에 두고 ElasticBeanstalk으로 배포하는 방법에 대해 알아보도록 하겠습니다.
 
@@ -313,5 +313,40 @@ $ yarn start
 **TODO** 버튼을 클릭하면 다음과 같이 현재 state에서 값을 가져오는 것을 확인할 수 있습니다. 
 
 ![7](./pic/7.png)
+
+### script 한번에 작성하기
+
+server와 client 매번 2개씩 열기 귀찮으니 한번에 열 수 있도록 script를 수정해봅시다. 
+
+```bash
+$ yarn add --dev npm-run-all
+```
+
+
+
+#### npm-run-all?
+
+npm의 여러 script를 동시에 실행시켜주는 package로 동시에 실행시켜야할 때 간편한 도구입니다. 
+
+
+
+```
+// package.json
+"scripts": {
+	"start": "npm-run-all --parallel start:**",
+	"start:server": "nodemon --exec babel-node server.js --ignore client/",
+	"start:client": "cd ./client && yarn start"
+},
+```
+
+
+
+```sh
+$ yarn start
+```
+
+다음 script를 입력하면, server와 client가 동시에 실행되는 것을 볼 수 있습니다.
+
+
 
 여기까지는 간단한 React + Express 앱을 만들기 위한 준비 과정이었고 이제 본격적으로 CircleCI를 사용해 ElasticBeanstalk으로 배포하는 방법에 대해 배워봅시다. 
