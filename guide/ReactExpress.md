@@ -350,3 +350,51 @@ $ yarn start
 
 
 여기까지는 간단한 React + Express 앱을 만들기 위한 준비 과정이었고 이제 본격적으로 CircleCI를 사용해 ElasticBeanstalk으로 배포하는 방법에 대해 배워봅시다. 
+
+
+
+### React App을 build 해봅시다
+
+client 폴더 하위에 `.gitignore` 파일을 수정해주세요. `build` 폴더를 elastic beanstalk을 통해 업로드해야하므로  ignore하지 않도록 지워주세요!
+
+
+
+```shell
+# 프로젝트의 root 경로로 이동해주세요.
+$ cd client
+$ yarn build
+```
+
+
+
+`server.js` 코드에 build된 static file을 **serve**하도록 코드를 추가해줍시다.
+
+```javascript
+import path from 'path';
+import express from 'express';
+
+const PORT = process.env.HTTP_PORT || 4001;
+const app = express();
+
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.get('/todo', (req, res) => {
+  res.json(
+    {
+      name: 'CircleCI',
+      description: 'setting CI/CD with CircleCI'
+    });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening at port ${PORT}.`);
+})
+```
+
+
+
+이제 client는 실행할 필요없이, server만 실행해보도록 합시다.
+
+![13](./pic/13.png)
+
+완성되었습니다!

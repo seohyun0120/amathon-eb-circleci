@@ -1,4 +1,4 @@
-## Before Session
+# Before Session
 
 아마톤 사전 세션에 오신 것을 환영합니다. 세션을 진행하기에 앞서, 아래의 tool들을 미리 세팅해주세요! 😀
 
