@@ -8,7 +8,8 @@
   "scripts": {
     "start": "npm-run-all --parallel start:**",
     "start:server": "nodemon --exec babel-node server.js --ignore client/",
-    "start:client": "cd ./client && yarn start"
+    "start:client": "cd ./client && yarn start",
+    "build": "babel server.js --out-file server.compiled.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
