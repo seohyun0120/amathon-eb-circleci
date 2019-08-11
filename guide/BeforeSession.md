@@ -6,7 +6,7 @@
 
 ### 0. Code Editor 설치
 
-VS Code, Atom, Sublime Text와 같은 에디터를 사용합니다. 저는 **VS Code**를 선호하는 편입니다! 세션은 VS Code를 사용해 진행됩니다! 
+VS Code, Atom, Sublime Text와 같은 에디터를 사용합니다. 저는 **VS Code**를 선호하는 편입니다! 세션은 **VS Code**를 사용해 진행됩니다! 
 
 - [VS Code](https://code.visualstudio.com/)
 - [Sublime Text](https://www.sublimetext.com/)
@@ -42,7 +42,7 @@ Elastic Beanstalk용 CLI로 명령줄에서 Elastic Beanstalk 환경을 관리�
 
 ### 4. Git Client 
 
-CircleCI를 활용해 배포 자동화 실습을 하기 위해서는 Git에 push를 자주 해야합니다. commit, push, merge 할 때 git 명령어를 써도 되지만, 해당 세션에서는 다소 많은 push가 이뤄질 예정이기에 Git Client를 활용하고자 합니다. 평소에 자주 사용하시던 tool로 진행해주시면 됩니다! 혹시나 아직 설치해본 적이 없으시다면, Git Kraken을 추천드려요! 세션은 Git Kraken을 사용해 진행됩니다!
+CircleCI를 활용해 배포 자동화 실습을 하기 위해서는 Git에 push를 자주 해야합니다. commit, push, merge 할 때 git 명령어를 써도 되지만, 해당 세션에서는 다소 많은 push가 이뤄질 예정이기에 Git Client를 활용하고자 합니다. 평소에 자주 사용하시던 tool로 진행해주시면 됩니다! 혹시나 아직 설치해본 적이 없으시다면, **Git Kraken**을 추천드려요! 세션은 **Git Kraken**을 사용해 진행됩니다!
 
 - [Git Kraken](https://www.gitkraken.com/git-client)
 - [Source Tree](https://www.sourcetreeapp.com/)

@@ -1,12 +1,23 @@
-## Amathon
+# Amathon 2019 with CircleCI & Elastic Beanstalk
 
-세션 시작 전 준비 사항: [준비하기](./guide/BeforeSession.md)
+🙌  2019 Amathon 세션에 오신 것을 환영합니다. 
+
+오늘 핸즈온 주제는 **CircleCI + ElasticBeanstalk을 활용한 React 배포 자동화**입니다. 세션을 시작하기 앞서, 몇 가지 **준비사항**들이 있습니다. 세션 시작 전 아래 **준비사항**들을 준비 후 세션에 참석해주세요.
 
 
 
-세션 시작 하기
+### 🙃 세션 시작 전 준비 사항
 
-1. [React + Express App 개발하기](./guide/ReactExpress.md)
-2. [Elastic Beanstalk 설정하기](./guide/ElasticBeanstalk.md)
-3. [CirlceCI 설정하기](./guide/CircleCI.md)
+- #### ⛑ 환경 세팅하기: [README](./guide/beforesession.md)
 
+- #### 🐙 Git with Gitkraken: [README](./guide/Git.md)
+
+
+
+### 😎 세션 시작하기
+
+- #### 🔨 React + Express App 개발하기: [Go](./guide/ReactExpress.md)
+
+- #### 🌱 Elastic Beanstalk 설정하기: [Go](./guide/ElasticBeanstalk.md)
+
+- #### ✅ CircleCI 설정하기: [Go](./guide/circleci.md)
