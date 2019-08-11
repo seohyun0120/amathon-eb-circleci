@@ -8,7 +8,7 @@
 
 ### 🙃 세션 시작 전 준비 사항
 
-- #### ⛑ 환경 세팅하기: [README](./guide/beforesession.md)
+- #### ⛑ 환경 세팅하기: [README](./guide/BeforeSession.md)
 
 - #### 🐙 Git with Gitkraken: [README](./guide/Git.md)
 
@@ -20,4 +20,4 @@
 
 - #### 🌱 Elastic Beanstalk 설정하기: [Go](./guide/ElasticBeanstalk.md)
 
-- #### ✅ CircleCI 설정하기: [Go](./guide/circleci.md)
+- #### ✅ CircleCI 설정하기: [Go](./guide/CircleCI.md)
