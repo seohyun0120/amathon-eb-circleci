@@ -6,6 +6,8 @@
 
 
 
+
+
 ### 🙃 세션 시작 전 준비 사항
 
 - #### ⛑ 환경 세팅하기: [README](./guide/BeforeSession.md)
@@ -14,9 +16,13 @@
 
 
 
+
+
 ### 😎 세션 시작하기
 
-- #### 🔨 React + Express App 개발하기: [Go](./guide/ReactExpress.md)
+- #### 🔨 React + Express App 개발하기 Part 1: [Go](./guide/ReactExpress.md)
+
+- #### 🛠 React + Express App 개발하기 Part 2: [Go](./guide/ReactExpress_2.md)
 
 - #### 🌱 Elastic Beanstalk 설정하기: [Go](./guide/ElasticBeanstalk.md)
 
