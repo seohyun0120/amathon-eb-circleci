@@ -4,7 +4,7 @@ AWS ElasticBeanstalk에 이때까지 만든 애플리케이션을 배포해보�
 
 
 
-## 1. IAM 사용자 생성하기
+## 0️⃣ IAM 사용자 생성하기
 
 AWS Console에 로그인 후, 서비스에서 **IAM**을 클릭하면 다음과 같은 화면을 볼 수 있습니다. 
 
@@ -30,8 +30,7 @@ AWS Console에 로그인 후, 서비스에서 **IAM**을 클릭하면 다음과 
 
 // aws configure 등록하기
 
-
-## 2. EB CLI 구성하기
+## 1️⃣ EB CLI 구성하기
 
 `eb init` 을 통해 elastic beanstalk 프로젝트를 시작해봅시다.
 
@@ -124,7 +123,7 @@ option_settings:
 
 
 
-## 3. EB Create
+## 2️⃣ EB Create
 
 EB 환경을 생성해봅시다. 
 
@@ -156,7 +155,7 @@ URL을 클릭해보면, **'502 Bad Gateway'**가 뜨는 것을 확인할 수 있
 
 
 
-## 4. Proxy 설정
+## 3️⃣ Proxy 설정
 
 EB에서 Node.js 플랫폼은 역방향 프록시를 사용하여 인스턴스에서 포트 80의 요청을 포트 8081에서 수신 중인 애플리케이션으로 전달합니다. 우리의 서버는 `4001` 번 포트에서 실행되기때문에 **'502 Bad Gateway'**가 뜨는 것을 확인할 수 있습니다. 
 
@@ -183,7 +182,7 @@ upstream nodejs {
 
 
 
-## 5. Static File 설정
+## 4️⃣ Static File 설정
 
 위에서 작성한 파일을 읽다보면 다음과 같은 코드를 볼 수 있습니다. 
 
