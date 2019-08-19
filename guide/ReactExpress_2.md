@@ -1,6 +1,8 @@
 # React + Express Part 2
 
-이전 가이드에서는 기본적인 Front, Back 세팅은 끝났습니다. 이제 간단한 앱을 만들어봅시다.
+이제 간단한 앱을 만들어봅시다.
+<br>
+<br>
 
 ## 0️⃣ 간단한 앱 구성하기
 
@@ -53,14 +55,11 @@ app.listen(PORT, () => {
 ``` bash
 $ yarn add axios
 ```
-
-<br>
-
 ### 🤙 Axios?
 
 > [Axios](https://github.com/axios/axios)란 HTTP 클라이언트 라이브러리로써, 비동기 방식으로 HTTP 데이터 요청을 실행합니다.
 
-
+<br>
 
 **client/src/App.js**
 
@@ -207,11 +206,7 @@ $ npm install npm-run-all --save-dev
 
 `yarn start` 혹은 `npm start` script를 통해 **server**와 **client**가 동시에 실행되는 것을 확인할 수 있습니다.
 
-
-
-여기까지는 **간단한 React + Express 앱**을 만들기 위한 준비 과정이었고 이제 본격적으로 **CircleCI**를 사용해 **ElasticBeanstalk**으로 배포하는 방법에 대해 배워봅시다. 
-
-
+<br>
 
 ## 3️⃣ React App 빌드하기
 
