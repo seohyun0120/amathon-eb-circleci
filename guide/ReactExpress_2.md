@@ -55,7 +55,7 @@ app.listen(PORT, () => {
 ``` bash
 $ yarn add axios
 ```
-### 🤙 Axios?
+#### 🤙 Axios?
 
 > [Axios](https://github.com/axios/axios)란 HTTP 클라이언트 라이브러리로써, 비동기 방식으로 HTTP 데이터 요청을 실행합니다.
 
@@ -120,7 +120,7 @@ export default App;
 
 <br>
 
-### 🤙 http-proxy-middleware? 
+#### 🤙 http-proxy-middleware? 
 
 >CRA를 통해 React 프로젝트를 생성하면 자동으로 서버가 함께 생성됩니다. 하지만, 우린느 Express로 구축된 서버가 있기 때문에 2개의 서버가 존재합니다. 따라서, proxy 설정을 해줘야합니다. react-scripts의 버전이 2 이상인 경우 [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware)를 설치해 setupProxy.js 파일 생성을 통해 proxy 설정을 할 수 있습니다.
 
@@ -178,10 +178,7 @@ $ npm start
 ## 2️⃣ script 한번에 작성하기
 
 **server**와 **client** 매번 2개씩 열기 귀찮으니 한번에 열 수 있도록 **script**를 수정해봅시다. 
-
-<br>
-
-### 🤙 npm-run-all?
+#### 🤙 npm-run-all?
 
 >  npm의 여러 script를 동시에 실행시켜주는 package로 동시에 실행시켜야할 때 간편한 도구입니다. 
 
