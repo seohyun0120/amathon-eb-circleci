@@ -28,7 +28,52 @@ AWS Console에 로그인 후, 서비스에서 **IAM**을 클릭하면 다음과 
 
 다음과 같이 사용자가 생성된 것을 확인할 수 있습니다. 
 
-// aws configure 등록하기
+
+
+## 🆒 AWS Configure 구성하기
+
+방금 생성한 사용자를 AWS CLI에서 사용할 수 있도록 설정해봅시다. 터미널을 열어 아래와 같이 작성해봅시다.
+
+profile  속성을 통해 여러 계정을 switching하며 사용할 수 있도록 설정해봅시다.
+
+```shell
+$ aws configure --profile amathon
+AWS Access Key ID [None]: 방금 생성된 엑세스 키 ID
+AWS Secret Access Key [None]: 방금 생성된 비밀 엑세스 키
+Default region name [None]: ap-northeast-2
+Default output format [None]: json
+```
+
+<br>
+
+**AWS CLI**는 `aws configure`를 사용하여 지정하는 자격 증명을 홈 디렉터리의 `.aws`라는 폴더에 있는 `credentials`라는 로컬 파일에 저장합니다. OS에 따라 저장위치가 다르니 아래를 확인해주세요.
+
+**macOS, Linux, Unix**
+
+```~/.aws/credentials
+~/.aws/credentials
+```
+
+**Windows**
+
+```
+C:\Users\USERNAME\.aws\credentials
+```
+
+<br>
+
+```shell
+$ cd .aws
+$ vim credentials
+```
+
+저처럼 **한 개 이상의 사용자**를 등록해둔 경우, 아래와 같이 확인할 수 있습니다.
+
+![35](./pic/35.png)
+
+
+
+
 
 ## 1️⃣ EB CLI 구성하기
 
