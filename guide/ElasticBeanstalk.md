@@ -101,7 +101,7 @@ $ vim credentials
 
    (저는 이미 해당 key pair가 있어서 그것을 선택하였습니다.)
 
-
+<br>
 
 위와 같이 설정하게되면, 현재 디렉토리에서 `.elasticbeanstalk` 폴더안에 `config.yml` 파일이 생성된 것을 확인할 수 있습니다 저와 똑같이 설정하셨다면, **config.yml** 파일은 다음과 같아야합니다.
 
@@ -128,11 +128,9 @@ global:
   workspace_type: Application
 ```
 
-
-
 ElasticBeanstalk은 **nodejs**로 실행되는데 우리의 server는 ES6으로 실행됩니다. 따라서, 우리의 server code를 순수 nodejs 파일로 변경해줘야합니다.
 
-
+<br>
 
 **package.json**
 
@@ -148,11 +146,11 @@ ElasticBeanstalk은 **nodejs**로 실행되는데 우리의 server는 ES6으로 
 
 ![15](./pic/15.png)
 
-
-
 빌드를 해봅시다. `server.compiled.js`라는 파일이 생성된 것을 확인할 수 있습니다. 
 
-EB는 우리의 nodejs app을 `server.js`  혹은 `app.js`를 사용합니다. 하지만 우리의 컴파일 파일은 `server.compiled.js` 이기 때문에 수정을 해야합니다. 
+<br>
+
+EB는 우리의 nodejs  App을 `server.js`  혹은 `app.js`를 사용합니다. 하지만 우리의 컴파일 파일은 `server.compiled.js` 이기 때문에 수정을 해야합니다. 
 
 
 
@@ -166,7 +164,7 @@ option_settings:
 
 이제 EB는 **server.compiled.js** 로 서버를 실행할 수 있습니다. 
 
-
+<br>
 
 ## 2️⃣ EB Create
 
@@ -178,7 +176,7 @@ $ eb create
 
 ![16](./pic/16.png)
 
-몇 분 정도 기다리면 EB 환경이 생성됩니다!
+계속 **default값**으로 설정한 후, 몇 분 정도 기다리면 EB 환경이 생성됩니다!
 
 
 
@@ -198,13 +196,11 @@ elastic beanstalk 콘솔에서 배포된 웹사이트를 열어봅시다.
 
 URL을 클릭해보면, **'502 Bad Gateway'**가 뜨는 것을 확인할 수 있습니다. 여기까지 오셨다면 정상적으로 배포를 완료하셨습니다. 
 
-
+<br>
 
 ## 3️⃣ Proxy 설정
 
 EB에서 Node.js 플랫폼은 역방향 프록시를 사용하여 인스턴스에서 포트 80의 요청을 포트 8081에서 수신 중인 애플리케이션으로 전달합니다. 우리의 서버는 `4001` 번 포트에서 실행되기때문에 **'502 Bad Gateway'**가 뜨는 것을 확인할 수 있습니다. 
-
-
 
 따라서 proxy 설정을 해보도록 합시다.
 
@@ -212,11 +208,9 @@ EB에서 Node.js 플랫폼은 역방향 프록시를 사용하여 인스턴스�
 $ touch .ebextensions/proxy.config
 ```
 
-
-
 **.ebextensions/proxy.config**
 
-[여기](https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/nodejs-platform-proxy.html?source=post_page)에 적힌 코드를 복사해주시고, 포트 번호만 **'5000'**에서 **'4001'**로 바꿔주세요.
+[여기](https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/nodejs-platform-proxy.html?source=post_page)에 적힌 코드를 복사해주시고, **8번째 줄** 포트 번호만 **'5000'**에서 **'4001'**로 바꿔주세요.
 
 ```config
 upstream nodejs {
@@ -225,11 +219,13 @@ upstream nodejs {
 }
 ```
 
-
+<br>
 
 ## 4️⃣ Static File 설정
 
-위에서 작성한 파일을 읽다보면 다음과 같은 코드를 볼 수 있습니다. 
+위에서 작성한 파일 **37번째줄**에서 다음과 같은 코드를 볼 수 있습니다. 
+
+**.ebextensions/proxy.config** 
 
 ```
 location /static {
@@ -241,7 +237,7 @@ location /static {
 
 ![20](./pic/20.png)
 
-
+<br>
 
 따라서, 코드를 다음과 같이 수정해주세요
 
@@ -249,7 +245,7 @@ location /static {
 
 ```
 location /static {
-	alias /var/app/current/client/buildstatic;
+	alias /var/app/current/client/build/static;
 }
 ```
 

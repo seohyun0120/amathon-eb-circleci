@@ -1,28 +1,24 @@
 # CircleCI
 
-CircleCI 로그인 후, 상단에 'Go to app'을 클릭해주세요.
+CircleCI 로그인 후, 상단에 **'Go to app'**을 클릭해주세요.
 
 ![22](./pic/22.png)
 
-![24](./pic/24.png)
-
-다음과 같은 화면을 볼 수 있습니다. 우리의 프로젝트에도 circleci를 세팅해보도록 합시다. 
-
-![25](./pic/25.png)
 
 
+## 0️⃣ Add Project
 
-**1)** 해당하는 레포에 **'Set Up Project'** 버튼을 클릭해주세요.
+왼쪽 메뉴중, **ADD PROJECTS** 버튼을 클릭해보세요. 그럼 현재 연결된 github 계정의 repository들이 나열된 것을 확인할 수 있습니다. 현재 진행중인 repo를 선택해 **Set Up Project** 버튼을 눌러주세요.
 
-![23](./pic/23.png)
+![36](./pic/36.png)
 
+<br>
 
+## 1️⃣ config.yml 생성
 
-**2)** root 디렉토리에 `.circleci` 폴더를 생성해주세요.
+root 디렉토리에 `.circleci` 폴더를 생성해주세요. 생성된 폴더 안에 `config.yml` 파일을 생성한 후, 다음과 같이 코드를 작성해주세요.
 
-**3)** 생성된 폴더 안에 `config.yml` 파일을 생성해주세요.
-
-다음과 같이 코드를 작성해주세요.
+**🌀 Yarn 사용자** 
 
 **.circleci/config.yml**
 
@@ -33,7 +29,7 @@ jobs:
     docker:
       - image: circleci/node:8.10
 
-    working_directory: ~/amathon
+    working_directory: ~/amathon2019
 
     steps:
       - checkout
@@ -52,15 +48,49 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-
-
 ```
 
+<br>
 
+**🌀 NPM 사용자**
 
-### Jobs
+**.circleci/config.yml**
 
-circleci는 1개 이상의 job을 수행합니다. 수행할 작업은 모두 `jobs`에서 정의되어야합니다. 
+```yaml
+version: 2
+jobs:
+  build:
+    build:
+    docker:
+      - image: circleci/node:8.10
+
+    working_directory: ~/amathon2019
+    
+    steps:
+      - checkout
+
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+          
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+
+      - run:
+          name: install-npm-wee
+          command: npm install
+          
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+```
+
+<br>
+
+### 🤙 Jobs
+
+> circleci는 1개 이상의 job을 수행합니다. 수행할 작업은 모두 `jobs`에서 정의되어야합니다.
 
 - **docker**
 
@@ -70,7 +100,7 @@ circleci는 1개 이상의 job을 수행합니다. 수행할 작업은 모두 `j
 
 - **working_directory**
 
-  현재 디렉토리의 경로를 입력해주세요. 저는 'amathon' 이라는 폴더 아래에서 진행중입니다!
+  현재 디렉토리의 경로를 입력해주세요. 저는 **'amathon2019'** 이라는 폴더 아래에서 진행중입니다!
 
 
 
@@ -84,12 +114,16 @@ circleci는 1개 이상의 job을 수행합니다. 수행할 작업은 모두 `j
 
   Yarn 패키지 캐시 복원 ➡️ Dependecies 설치 ➡️ Yarn 패키지 캐시 저장
 
+<br>
 
+## 2️⃣ commit & push
 
-4) 지금까지의 변경사항을 **commit** 한 후 **push** 해주세요.
+지금까지의 변경사항을 **commit** 한 후 **push** 해주세요. **Start Building** 버튼을 눌러주세요.
 
-5) **Start Building** 버튼을 눌러주세요.
+![37](./pic/37.png)
 
 다음과 같이 **'SUCCESS'** 가 뜬 것을 확인할 수 있습니다. 
 
-![26](./pic/26.png)
+<br>
+
+기본적인 **circleci** 세팅은 완료되었습니다. 이제, **Elastic Beanstalk**을 활용해 우리가 만든 **react app**을 어떻게 배포할 것인지에 알아봅시다.
