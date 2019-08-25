@@ -6,15 +6,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: {}
+      todoList: []
     }
   }
-
   getToDo = async () => {
     try {
-      const response = await axios.get('/todo');
+      const response = await axios.get('/todos');
+      console.log('response data: ', response.data)
       this.setState({
-        todo: response.data
+        todoList: response.data
       })
     } catch (error) {
       console.error(error);
@@ -22,18 +22,25 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.todolist)
+    const todos = this.state.todoList
     return (
-      <div>
+      <div className="App">
         <h1>Hello Stranger?</h1>
         <button onClick={this.getToDo}>
           TODO
         </button>
-        <h3>name: {this.state.todo.name}</h3>
-        <h4>description: {this.state.todo.description}</h4>
+        <div>
+          {todos.map(todo => (
+            <h3 key={todo.id}>
+              제목: {todo.title}<br/>설명: {todo.description}
+            </h3>
+          ))}
+        </div>
+        <h1>Thank you :) </h1>
       </div>
     )
   }
-
 }
 
 export default App;
