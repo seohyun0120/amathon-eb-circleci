@@ -50,8 +50,9 @@ Express server가 동작하도록 방금 생성한 **server.js**에 간단히 �
 ```js
 const express = require('express');
 const PORT = process.env.HTTP_PORT || 4001;
-
+const cors = require("cors");
 const app = express();
+app.use(cors())
 
 app.listen(PORT, () => {
   console.log(`Server listening at port ${PORT}.`);
@@ -97,18 +98,6 @@ $ npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --sav
 
 <br>
 
-**server.js**
-
-```js
-const express = require('express');
-const app = express();
-const PORT = process.env.HTTP_PORT || 4001;
-
-app.listen(PORT, () => {
-  console.log(`Server listening at port ${PORT}.`);
-});
-```
-
 터미널에서 `yarn start` (혹은 `npm start`) 를 입력하면, console에 `Server listening at port 4001` 라고 적힌 것을 확인할 수 있습니다.
 
 <br>
@@ -152,7 +141,7 @@ $ npm start
 
 <br>
 
-조금 더 심플하게 만들기 위해 필요없는 파일은 지워보도록 하겠습니다. 아래와 같이 **client** 폴더 내의 필요없는 파일은 전부 지워주세요.
+조금 더 심플하게 만들기 위해 필요없는 파일은 지워보도록 하겠습니다. **client** 폴더 내의 필요없는 파일을 전부 지워서, 아래와 같은 구조만 남겨주세요.
 
 ```
 client
@@ -161,12 +150,12 @@ client
 ├── package.json
 ├── .gitignore
 ├── public
-│   ├── index.html
+│   └── index.html
 └── src
     ├── App.css
     ├── App.js
     ├── index.css
-    ├── index.js
+    └── index.js
 ```
 
 ![3](./pic/3.png)
