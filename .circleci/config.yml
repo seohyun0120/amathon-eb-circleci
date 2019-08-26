@@ -24,12 +24,17 @@ jobs:
             cd client
             yarn
             yarn build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - . 
   deploy:
     docker:
       - image: circleci/python:2.7
     working_directory: ~/amathon
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
       - run:
           name: Install awscli
           command: |
