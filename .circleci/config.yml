@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Deploy to EB if branch is Master
           command: |
-            eb use amathon-dev --profile amathon
+            eb use amathon-eb-circleci-dev --profile amathon
             eb deploy --profile amathon
 
 workflows:
