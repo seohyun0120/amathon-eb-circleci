@@ -212,9 +212,7 @@ URL을 클릭해보면, **502 Bad Gateway**가 뜨는 것을 확인할 수 있�
 
 ```shell
 $ eb deploy
-
 # 또는
-
 $ eb deploy amathon-dev
 ```
 
@@ -349,7 +347,19 @@ workflows:
                 - master
 ```
 
+<br>
 
+### 🤙 eb use
+
+> 저장된 환경을 기본 환경으로 설정합니다. Git을 사용할 경우, **eb use**는 현재 브랜치에 대한 기본 환경을 설정합니다. 따라서, Elastic Beanstalk에 배포하려는 각 브랜치에서 이 명령을 한 번씩 꼭 실행해야합니다. 
+
+<br>
+
+### 🤙 eb deploy
+
+>실행중인 애플리케이션으로 애플리케이션 소스 번들을 배포합니다. 이때 주의해야할 점은, **eb deploy**는 **항상 최신 commit을 배포**합니다. 따라서, 배포를 하기전에 변경사항을 모두 commit한 후 배포를 해주세요. **commit & push**를 한 후 circleci가 자동으로 변경사항들을 배포해주겠지만, circleci를 사용하지않고 eb만 사용할 경우, 참고해주세요.
+
+<br>
 
 ### 🤙 workflows
 
