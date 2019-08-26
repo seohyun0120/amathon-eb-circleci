@@ -37,7 +37,7 @@ class App extends React.Component {
             </h3>
           ))}
         </div>
-        <h1>Thank you :) </h1>
+        <h2>Thank you :) </h2>
       </div>
     )
   }
