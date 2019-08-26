@@ -22,19 +22,15 @@ jobs:
           name: Install Dependencies && Build Client
           command: |
             cd client
+            rm -R ./build
             yarn
             yarn build
-      - persist_to_workspace:
-          root: .
-          paths:
-            - . 
   deploy:
     docker:
       - image: circleci/python:2.7
     working_directory: ~/amathon
     steps:
-      - attach_workspace:
-          at: .
+      - checkout
       - run:
           name: Install awscli
           command: |
@@ -52,7 +48,7 @@ jobs:
       - run:
           name: Deploy to EB if branch is Master
           command: |
-            eb use amathon-eb-circleci-dev --profile amathon
+            eb use amathon-eb-circleci-dev --profile amathon # 현재 eb application 이름과 IAM profile 이름을 적어주세요. 
             eb deploy --profile amathon
 
 workflows:
