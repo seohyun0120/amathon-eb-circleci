@@ -3,24 +3,62 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10
-
-    working_directory: ~/amathon
-
+    working_directory: ~/amathon2019/client
     steps:
       - checkout
-
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "yarn.lock" }}
-
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
-
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+      - run:
+          name: Install Dependencies && Build Client
+          command: |
+            cd client
+            yarn
+            yarn build
+  deploy:
+    docker:
+      - image: circleci/python:2.7
+    working_directory: ~/amathon2019
+    steps:
+      - checkout
+      - run:
+          name: Install awscli
+          command: |
+            sudo pip install awsebcli --upgrade
+      - run:
+          name: Create AWS credentials manually
+          command: |
+            mkdir ~/.aws
+            touch ~/.aws/config
+            chmod 600 ~/.aws/config
+            echo "[profile amathon]" > ~/.aws/config
+            echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
+            echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+            ls
+      - run:
+          name: Deploy to EB if branch is Master
+          command: |
+            eb use amathon-dev --profile amathon
+            eb deploy --profile amathon
 
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
