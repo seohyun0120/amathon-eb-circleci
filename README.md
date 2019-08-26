@@ -20,6 +20,8 @@
 
 - #### 🛠 React + Express App 개발하기 Part 2: [Go](./guide/ReactExpress_2.md)
 
+- #### ✅ CircleCI 설정하기: [Go](./guide/CircleCI.md)
+
 - #### 🌱 Elastic Beanstalk 설정하기: [Go](./guide/ElasticBeanstalk.md)
 
-- #### ✅ CircleCI 설정하기: [Go](./guide/CircleCI.md)
+

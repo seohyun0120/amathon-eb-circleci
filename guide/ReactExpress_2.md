@@ -14,9 +14,11 @@
 
 ```js
 const express = require('express');
+const cors = require("cors")
 const PORT = process.env.HTTP_PORT || 4001;
 
 const app = express();
+app.use(cors())
 
 const todoList = [
   {
@@ -53,6 +55,8 @@ app.listen(PORT, () => {
 `TODO` 버튼을 클릭하면,  **title**과 **description** 옆에 할 일이 채워지도록 만들어봅시다.
 
 ``` bash
+# 현재 경로: ~/amathon/client
+
 $ yarn add axios
 ```
 #### 🤙 Axios?
@@ -122,11 +126,13 @@ export default App;
 
 #### 🤙 http-proxy-middleware? 
 
->CRA를 통해 React 프로젝트를 생성하면 자동으로 서버가 함께 생성됩니다. 하지만, 우린느 Express로 구축된 서버가 있기 때문에 2개의 서버가 존재합니다. 따라서, proxy 설정을 해줘야합니다. react-scripts의 버전이 2 이상인 경우 [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware)를 설치해 setupProxy.js 파일 생성을 통해 proxy 설정을 할 수 있습니다.
+>CRA를 통해 React 프로젝트를 생성하면 자동으로 서버가 함께 생성됩니다. 하지만, 우리는 Express로 구축된 서버가 있기 때문에 2개의 서버가 존재합니다. 따라서, proxy 설정을 해줘야합니다. react-scripts의 버전이 2 이상인 경우 [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware)를 설치해 setupProxy.js 파일 생성을 통해 proxy 설정을 할 수 있습니다.
 
 <br>
 
 ```bash
+# 현재 경로: ~/amathon/client
+
 $ yarn add http-proxy-middleware
 또는
 $ npm install --save-dev http-proxy-middleware
@@ -146,7 +152,7 @@ module.exports = function (app) {
 
 <br>
 
-이제, **서버**와 **클라이언트**가 통신할 수 있습니다. 두 개의 터미널을 열어 **server**와 **client**를 실행시켜 봅시다.
+이제, **서버**와 **클라이언트**가 통신할 수 있습니다. 두 개의 터미널을 열어 **server**와 **client**를 실행시켜 봅시다. 이미 서버가 작동하고 있더라도 setupProxy의 적용을 위해 서버를 재시작해야 합니다.
 
 ```bash
 # client
@@ -207,14 +213,14 @@ $ npm install npm-run-all --save-dev
 
 ## 3️⃣ React App 빌드하기
 
-**client/.gitignore**
-
-```
-# production
-/build
-```
 
 **client** 폴더 하위에 `.gitignore` 파일을 수정해주세요. `build` 폴더를 **elastic beanstalk**을 통해 업로드해야하므로  ignore하지 않도록 지워주세요.
+
+**client/.gitignore**
+```
+# production
+# /build
+```
 
 <br>
 
@@ -235,9 +241,11 @@ $ npm build
 ```javascript
 const path = require('path');
 const express = require('express');
+const cors = require("cors")
 const PORT = process.env.HTTP_PORT || 4001;
 
 const app = express();
+app.use(cors())
 
 const todoList = [
   {
