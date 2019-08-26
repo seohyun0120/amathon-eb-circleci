@@ -24,4 +24,8 @@
 
 - #### 🌱 Elastic Beanstalk 설정하기: [Go](./guide/ElasticBeanstalk.md)
 
+<br>
 
+### 🤑 삭제 가이드
+
+- #### ⏹ 과금 방지를 위한 삭제 가이드: [Go](./guide/Delete.md)

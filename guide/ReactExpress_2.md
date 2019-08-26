@@ -14,7 +14,7 @@
 
 ```js
 const express = require('express');
-const cors = require("cors")
+const cors = require('cors')
 const PORT = process.env.HTTP_PORT || 4001;
 
 const app = express();
@@ -95,7 +95,7 @@ class App extends React.Component {
     console.log(this.state.todolist)
     const todos = this.state.todoList
     return (
-      <div className="App">
+      <div className='App'>
         <h1>Hello Stranger?</h1>
         <button onClick={this.getToDo}>
           TODO
@@ -241,7 +241,7 @@ $ npm build
 ```javascript
 const path = require('path');
 const express = require('express');
-const cors = require("cors")
+const cors = require('cors')
 const PORT = process.env.HTTP_PORT || 4001;
 
 const app = express();

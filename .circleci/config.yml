@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Deploy to EB if branch is Master
           command: |
-            eb use amathon-eb-circleci-dev --profile amathon # 현재 eb application 이름과 IAM profile 이름을 적어주세요. 
+            eb use amathon-eb-circleci-dev --profile amathon # 현재 eb application 이름과 IAM credentials profile 이름을 적어주세요. 
             eb deploy --profile amathon
 
 workflows:

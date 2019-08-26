@@ -50,7 +50,7 @@ Express server가 동작하도록 방금 생성한 **server.js**에 간단히 �
 ```js
 const express = require('express');
 const PORT = process.env.HTTP_PORT || 4001;
-const cors = require("cors");
+const cors = require('cors');
 const app = express();
 app.use(cors())
 

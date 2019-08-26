@@ -204,7 +204,7 @@ elastic beanstalk 콘솔에서 배포된 웹사이트를 열어봅시다.
 
 ![19](./pic/19.png)
 
-URL을 클릭해보면, **'502 Bad Gateway'**가 뜨는 것을 확인할 수 있습니다. 여기까지 오셨다면 정상적으로 배포를 완료하셨습니다.
+URL을 클릭해보면, **502 Bad Gateway**가 뜨는 것을 확인할 수 있습니다. 여기까지 오셨다면 정상적으로 배포를 완료하셨습니다.
 
 <br>
 
@@ -286,7 +286,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/amathon2019/client
+    working_directory: ~/amathon2019 # 현재 실행중인 프로젝트명을 적어주세요
     steps:
       - checkout
       - restore_cache:
@@ -305,6 +305,7 @@ jobs:
           name: Install Dependencies && Build Client
           command: |
             cd client
+            rm -R ./build
             yarn
             yarn build
   deploy:
@@ -330,7 +331,8 @@ jobs:
       - run:
           name: Deploy to EB if branch is Master
           command: |
-            eb use amathon-dev --profile amathon
+            eb use amathon-eb-circleci-dev --profile amathon 
+            # 현재 eb application 이름과 IAM credentials profile 이름을 적어주세요.
             eb deploy --profile amathon
 
 workflows:
@@ -363,15 +365,17 @@ workflows:
 
   정의된 job들에 대한 여러가지 조건을 제시할 수 있습니다. 한가지 예를 들자면, 기본적으로 프로젝트를 build한 후, test를 통과한다면 **master** 브랜치에서 deploy를 할 수 있는 workflow를 구성할 수 있습니다. 자세한 조건들은 [여기](https://circleci.com/docs/2.0/configuration-reference/#workflows)를 참조하세요.
 
-  master 브랜치: `build` ▶️ `test` ▶️ `deploy`
+  > branch에 따른 workflow 구성 방법 예제
 
-  이외의 브랜치: `build` ▶️ `test`
+  ![45](./pic/45.png)
 
-  
+  <br>
 
   우리가 정의한 job은 `build` 와 `deploy`가 있습니다. `master` 브랜치만 배포를 할 수 있도록 하려면, 위처럼 filters 조건을 사용하여 구성할 수 있습니다. 
 
+![44](./pic/44.png)
 
+<br>
 
 ## 6️⃣ commit & push
 
@@ -385,8 +389,13 @@ workflows:
 
 
 
-aws console로 접속해, 제대로 배포가 되었는지 확인해봅시다. Health Green으로 확인되었으니, URL을 접속해보세요. 
+aws console로 접속해, 제대로 배포가 되었는지 확인해봅시다. **Health Green**으로 확인되었으니, URL을 접속해보세요. 
 
 ![40](./pic/41.png)
 
-**502 bad gateway** 문제도 해결된 것을 확인할 수 있습니다. 
+**502 bad gateway** 문제는 해결하였고, 원하던 결과대로 반영된 것을 확인할 수 있습니다.
+
+
+
+오늘 준비된 세션은 여기까지입니다😀 마지막으로 이번 세션의 가장 중요한 [과금방지를 위한 삭제 가이드](./guide/Delete.md)를 진행해봅시다.
+
