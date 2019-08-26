@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/amathon2019/client
+    working_directory: ~/amathon
     steps:
       - checkout
       - restore_cache:
@@ -27,7 +27,7 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:2.7
-    working_directory: ~/amathon2019
+    working_directory: ~/amathon
     steps:
       - checkout
       - run:

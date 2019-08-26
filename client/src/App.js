@@ -25,7 +25,7 @@ class App extends React.Component {
     console.log(this.state.todolist)
     const todos = this.state.todoList
     return (
-      <div className="App">
+      <div className='App'>
         <h1>Hello Stranger?</h1>
         <button onClick={this.getToDo}>
           TODO
