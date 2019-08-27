@@ -120,7 +120,8 @@ $ npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --sav
 
 $ yarn create react-app client
 또는
-$ npm init react-app client
+# npm 5.2+
+$ npx create-react-app client
 ```
 
 ![1](./pic/1.png)
@@ -148,6 +149,7 @@ client
 ├── README.md
 ├── node_modules
 ├── package.json
+├── yarn.lock
 ├── .gitignore
 ├── public
 │   └── index.html
