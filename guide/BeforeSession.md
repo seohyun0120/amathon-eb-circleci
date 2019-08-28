@@ -48,3 +48,13 @@ CircleCI를 활용해 배포 자동화 실습을 하기 위해서는 Git에 push
 - [Source Tree](https://www.sourcetreeapp.com/)
 
 - [Tower](https://www.git-tower.com/)
+
+
+
+### 5. Node & NPM 설치
+
+**Node**는 최소 8버전 이상, **NPM**은 최소 6버전 이상을 추천합니다. 해당 실습 자료는 node v8.16.0, npm v6.4.1에서 진행되었습니다. 버전 낮음으로 인해 발생할 수 있는 에러가 있을 수 있습니다. 
+
+- [NPM 안정화된 가장 최신 버전 설치하기](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
+- [Node 안정화된 가장 최신 버전 설치하기](https://nodejs.org/ko/)
+
