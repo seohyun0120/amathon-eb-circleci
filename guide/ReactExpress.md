@@ -39,6 +39,8 @@ $ npm install express cors --save
 $ touch server.js
 ```
 
+> window에서는 touch 명령어를 사용할 수 없습니다. 따라서, 텍스트 에디터 (vscode) 혹은 해당 폴더 경로에서 새 파일 `server.js` 를 만들어주세요. 
+
 <br>
 
 ## 1️⃣ Back-end (Express server)
@@ -68,6 +70,10 @@ $ yarn add @babel/cli @babel/core @babel/node @babel/preset-env nodemon --dev
 또는
 $ npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --save-dev
 ```
+
+> 🚧 설치하는 과정에서 오류가 날 경우, npm 버전이 8 이상인지 확인하고, global로 설치해보세요.`npm i -g nodemon`
+>
+> 🚧 `[nodemon] Internal watch failed: watch ENOSPC` 와 같은 오류가 날 경우, [여기](https://github.com/seohyun0120/amathon-eb-circleci/issues/6)를 참고해주세요.
 
 <br>
 

@@ -18,7 +18,7 @@ const cors = require('cors')
 const PORT = process.env.HTTP_PORT || 4001;
 
 const app = express();
-app.use(cors())
+app.use(cors());
 
 const todoList = [
   {
@@ -58,6 +58,7 @@ app.listen(PORT, () => {
 # 현재 경로: ~/amathon/client
 
 $ yarn add axios
+또는
 $ npm i axios
 ```
 #### 🤙 Axios?
@@ -127,7 +128,7 @@ export default App;
 
 #### 🤙 http-proxy-middleware? 
 
->CRA를 통해 React 프로젝트를 생성하면 자동으로 서버가 함께 생성됩니다. 하지만, 우리는 Express로 구축된 서버가 있기 때문에 2개의 서버가 존재합니다. 따라서, proxy 설정을 해줘야합니다. react-scripts의 버전이 2 이상인 경우 [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware)를 설치해 setupProxy.js 파일 생성을 통해 proxy 설정을 할 수 있습니다.
+>CRA를 통해 React 프로젝트를 생성하면 자동으로 서버가 함께 생성됩니다. 하지만, 우리는 Express로 구축된 서버가 있기 때문에 2개의 서버가 존재합니다. 따라서, proxy 설정을 해줘야합니다. react-scripts의 버전이 2 이상인 경우 [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware)를 설치해 setupProxy.js 파일 생성을 통해 proxy 설정을 할 수 있습니다. [CRA 공식 문서](https://create-react-app.dev/docs/proxying-api-requests-in-development)
 
 <br>
 
@@ -153,7 +154,13 @@ module.exports = function (app) {
 
 <br>
 
-이제, **서버**와 **클라이언트**가 통신할 수 있습니다. 두 개의 터미널을 열어 **server**와 **client**를 실행시켜 봅시다. 이미 서버가 작동하고 있더라도 setupProxy의 적용을 위해 서버를 재시작해야 합니다.
+이제, **서버**와 **클라이언트**가 통신할 수 있습니다. 두 개의 터미널을 열어 **server**와 **client**를 실행시켜 봅시다. 이미 서버가 작동하고 있더라도 setupProxy의 적용을 위해 **서버를 재시작**해야 합니다. 
+
+> 🚧 `Failed to load resource: the server responded with a status of 404 (Not Found)` 와 같은 에러가 발생할 경우, **client/package.json**에 `"proxy": "http://localhost:4000"` 를 추가해주세요.
+>
+> 
+>
+> 🚧 `sh: 1: react-scripts: not found` 와 같은 에러 발생할 경우, client 폴더 내의 nodeModules를 삭제하고 client를 다시 시작해주세요.
 
 ```bash
 # client
@@ -209,6 +216,8 @@ $ npm install npm-run-all --save-dev
 <br>
 
 `yarn start` 혹은 `npm start` script를 통해 **server**와 **client**가 동시에 실행되는 것을 확인할 수 있습니다.
+
+> 🚧  `Error: listen EADDRINUSE :::4001` 와 같은 에러가 발생할 경우, 4001번 포트를 이미 사용중이라는 뜻입니다. 현재 실행중인 터미널을 모두 종료한 후 다시 시도해보세요.
 
 <br>
 
