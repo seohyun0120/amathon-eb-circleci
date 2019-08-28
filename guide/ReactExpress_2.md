@@ -58,6 +58,7 @@ app.listen(PORT, () => {
 # 현재 경로: ~/amathon/client
 
 $ yarn add axios
+$ npm i axios
 ```
 #### 🤙 Axios?
 
@@ -229,7 +230,7 @@ $ npm install npm-run-all --save-dev
 $ cd client
 $ yarn build
 또는
-$ npm build
+$ npm run build
 ```
 
 <br>
@@ -273,7 +274,7 @@ app.listen(PORT, () => {
 
 
 
-이제 **client**를 실행할 필요없이, **server**만 실행해보도록 합시다.`yarn start:server` 혹은 `npm start:server` script를 사용해 실행시켜봅시다.
+이제 **client**를 실행할 필요없이, **server**만 실행해보도록 합시다.`yarn start:server` 혹은 `npm run start:server` script를 사용해 실행시켜봅시다.
 
 **localhost:4001**
 
