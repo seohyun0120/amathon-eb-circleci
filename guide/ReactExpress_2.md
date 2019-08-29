@@ -249,6 +249,7 @@ $ npm run build
 **server.js**
 
 ```javascript
+// 이 부분 추가
 const path = require('path');
 const express = require('express');
 const cors = require('cors')
@@ -270,6 +271,7 @@ const todoList = [
   }
 ]
 
+// 이 부분 추가
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.get('/todos', (req, res) => {
@@ -291,6 +293,4 @@ app.listen(PORT, () => {
 
 **4001번** 포트로 접속해보면, **build**된 React Application을 확인할 수 있습니다. 
 
-
-
-이제 **Elastic Beanstalk**으로 배포해보도록 합시다. [다음 가이드로 이동하기](./ElasticBeanstalk.md)
+이제 **배포**를 위한 환경을 설정해볼게요. [다음 가이드로 이동하기](./CircleCI.md)

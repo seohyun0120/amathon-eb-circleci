@@ -14,21 +14,7 @@ CircleCI 로그인 후, 상단에 **Go to app**을 클릭해주세요.
 
 <br>
 
-## 1️⃣ IAM User 등록하기
-
-왼쪽 메뉴중 **JOBS** 버튼을 선택한 후, 해당 프로젝트에 **톱니바퀴 아이콘**을 눌러봅시다.
-
-![25](./pic/25.png)
-
-
-
-**PERMISSIONS**에서 **AWS Permissions** 를 클릭한 후, 이 프로젝트를 위해 생성했던 IAM User의 엑세스 키와 비밀 엑세스 키를 입력해주세요. csv파일로 다운받지 않았다면, `~/.aws/credentials` 에서 확인할 수 있습니다.
-
-![26](./pic/26.png)
-
-<br>
-
-## 2️⃣ config.yml 생성
+## 1️⃣ config.yml 생성
 
 **.circleci 폴더** 아래 **config.yml** 파일을 만든 후, 아래 코드를 복사 붙여넣기 해주세요.
 
@@ -63,7 +49,7 @@ jobs:
             yarn build
 ```
 
-
+<br>
 
 ### Ⓜ️ NPM 사용자
 
@@ -93,7 +79,7 @@ jobs:
             npm build
 ```
 
-
+<br>
 
 ### 🤙 Jobs
 
@@ -121,7 +107,7 @@ jobs:
 
 <br>
 
-## 3️⃣ commit & push
+## 2️⃣ commit & push
 
 지금까지의 변경사항을 **commit** 한 후 **push** 해주세요. **Start Building** 버튼을 눌러주세요.
 

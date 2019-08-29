@@ -1,6 +1,6 @@
 # React + Express Part 1
 
-이번 세션에서는 **Front-End**와 **Back-end**를 하나의 repository에 두고 간단한 웹을 구성해보도록합시다.
+이번 세션에서는 **Front-End**와 **Back-end**를 하나의 repository에 두고 간단한 웹을 구성해볼게요.
 
 ## 0️⃣ 프로젝트 시작하기
 우리가 만들고자하는 **Application의 구조**는 다음과 같습니다. 
@@ -39,7 +39,7 @@ $ npm install express cors --save
 $ touch server.js
 ```
 
-> window에서는 touch 명령어를 사용할 수 없습니다. 따라서, 텍스트 에디터 (vscode) 혹은 해당 폴더 경로에서 새 파일 `server.js` 를 만들어주세요. 
+> 🚧 window에서는 touch 명령어를 사용할 수 없습니다. 따라서, 텍스트 에디터 (vscode) 혹은 해당 폴더 경로에서 새 파일 `server.js` 를 만들어주세요. 
 
 <br>
 
@@ -71,9 +71,8 @@ $ yarn add @babel/cli @babel/core @babel/node @babel/preset-env nodemon --dev
 $ npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --save-dev
 ```
 
-> 🚧 설치하는 과정에서 오류가 날 경우, npm 버전이 8 이상인지 확인하고, global로 설치해보세요.`npm i -g nodemon`
+> 🚧 설치하는 과정에서 오류가 날 경우, npm 버전이 최신 버전인지 확인하고, global로 설치해보세요.`npm i -g nodemon`
 >
-> 🚧 `[nodemon] Internal watch failed: watch ENOSPC` 와 같은 오류가 날 경우, [여기](https://github.com/seohyun0120/amathon-eb-circleci/issues/6)를 참고해주세요.
 
 <br>
 
@@ -106,6 +105,8 @@ $ npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --sav
 
 터미널에서 `yarn start` (혹은 `npm start`) 를 입력하면, console에 `Server listening at port 4001` 라고 적힌 것을 확인할 수 있습니다.
 
+> 🚧 `[nodemon] Internal watch failed: watch ENOSPC` 와 같은 오류가 날 경우, [여기](https://github.com/seohyun0120/amathon-eb-circleci/issues/6)를 참고해주세요.
+
 <br>
 <br>
 
@@ -115,7 +116,7 @@ $ npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --sav
 
 <br>
 
-#### CRA(create-react-app) ?
+#### 🤙 CRA(create-react-app) ?
 
 >  페이스북에서 만든 react 웹 개발용 boilerplate입니다. 직접 환경을 세팅할 필요없이 간단한 앱을 만들 수 있습니다.
 
@@ -126,7 +127,7 @@ $ npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --sav
 
 $ yarn create react-app client
 또는
-# npm 5.2+
+# npm 5.2+ 
 $ npx create-react-app client
 ```
 
@@ -144,6 +145,9 @@ $ npm start
 <br>
 
 `localhost:3000` 에서 다음과 같은 화면이 뜬다면 성공입니다.
+
+> 🚧  `sh: 1: react-scripts: not found` 와 같은 에러 발생할 경우, client 폴더 내의 nodeModules를 삭제하고 client를 다시 시작해주세요.
+
 ![2](./pic/2.png)
 
 <br>

@@ -73,6 +73,20 @@ $ vim credentials
 
 <br>
 
+## ✳️ IAM User CircleCI에 등록하기
+
+왼쪽 메뉴중 **JOBS** 버튼을 선택한 후, 해당 프로젝트에 **톱니바퀴 아이콘**을 눌러봅시다.
+
+![25](/Users/scorpion/Developments/amathon/guide/pic/25.png)
+
+
+
+**PERMISSIONS**에서 **AWS Permissions** 를 클릭한 후, 이 프로젝트를 위해 생성했던 IAM User의 엑세스 키와 비밀 엑세스 키를 입력해주세요. csv파일로 다운받지 않았다면, `~/.aws/credentials` 에서 확인할 수 있습니다.
+
+![26](/Users/scorpion/Developments/amathon/guide/pic/26.png)
+
+<br>
+
 ## 1️⃣ EB Init
 
 `eb init`  명령어를 통해 EB CLI를 실행할 수 있도록 세팅해봅시다.
