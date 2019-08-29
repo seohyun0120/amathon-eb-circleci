@@ -247,7 +247,7 @@ $ touch .ebextensions/proxy.config
 
 **.ebextensions/proxy.config**
 
-[여기](https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/nodejs-platform-proxy.html?source=post_page)에 적힌 코드를 복사해주시고, **8번째 줄** 포트 번호만 **'5000'**에서 **'4001'**로 바꿔주세요.
+[여기](https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/nodejs-platform-proxy.html?source=post_page)에 적힌 코드를 복사해주시고, **8번째 줄** 포트 번호만 **5000**에서 **4001**로 바꿔주세요.
 
 ```config
 upstream nodejs {
